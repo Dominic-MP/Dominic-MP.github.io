@@ -1,0 +1,99 @@
+<!doctype html>
+
+<html>
+    <head>
+        <title>LC Prints and Photographs Wikipedia Image Citation Generator</title>
+        <link rel="stylesheet" href="css/style.css" type='text/css'>
+        <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+        <script src="js/wikidpla.js"></script>
+        <script>
+            var args = function() {
+              var a = Array();
+              if (window.location.search && window.location.search.length > 1) {
+                var pairs = window.location.search.substring(1).split('&');
+               
+                while (pairs.length) {
+                  var pair = pairs.pop().split('=');
+                  a[pair[0]] = pair[1];
+                }
+              }
+              return a;
+            }();
+            
+            var fileNameEnabled = true;
+            $(document).ready(function() {
+              if ('url' in args)
+                $('#dplaUrl').attr('value', args['url']);
+              
+              if ('file' in args) {
+                $('#dplaFile').attr('value', args['file']);
+                fileNameEnabled = true;
+              } else if ($('#dplaFile').attr('value') === "" ||
+                         $('#dplaFile').attr('value') === "(optional)") {
+                $('#dplaFile').focus(function () {
+                  $('#dplaFile').css('color', "");
+                  $('#dplaFile').attr('value', "");
+                  fileNameEnabled = true;
+                });
+                $('#dplaFile').css('color', '#999');
+                $('#dplaFile').attr('value', "(optional)");
+                fileNameEnabled = false;
+              }
+            });
+
+            function lookup() {
+              var dplaUrl = $('#dplaUrl').attr('value');
+              var dplaFile = fileNameEnabled
+                           ? $('#dplaFile').attr('value')
+                           : undefined;
+              var dplaCiteChecked =  $('#dplaStyleCitation').is(':checked');
+              
+              wikidpla(dplaUrl, function(pic) {
+                var dpla = $('<div id="dpla">')
+                  .append('<a target="_new" href="' + pic.link + '"><img src="'+ pic.thumb_gallery + '"></a>')
+                  .append("<br><span class='title'>" + pic.title + "</span>");
+                $("#dpla").replaceWith(dpla);
+                $("#wikitext").text(pic.wikitext);
+                $('#reflist').css('display', dplaCiteChecked ? 'none' : 'inline');
+              }, dplaFile, dplaCiteChecked);
+            }
+
+            $(document).ready(lookup);
+        </script>
+    </head>
+
+    <body>
+        <header>Wikipedia Image Citation Generator</header>
+        <center>NARA (via DPLA)</center>
+        <form action="javascript:lookup()">
+            <div id="dpla"></div>
+            
+            <table>
+                <tr>
+                    <td class="label">URL or LC Digital ID:</td>
+                    <td><input id="dplaUrl" type="text" size="50" value="http://dp.la/item/226e1e18a48dafa49ca6257b78b96881"></td>
+                </tr>
+                <tr>
+                    <td class="label">Commons file name:</td>
+                    <td><input id="dplaFile" type="text" size="50" value=""></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input id="dplaStyleCitation" type="radio" value="citation" name="style" /> Citation&emsp;<input id="dplaStyleFootnote" type="radio" value="footnote" name="style" checked /> Footnote</td>
+                </tr>
+                <tr><td colspan="2"><input type="submit" value="generate"></td></tr>
+            </table>
+            
+            <div class="wikitext" id="wikitext"></div>
+            
+            <div id="reflist">
+                Wikitext for references list:
+                <div class="wikitext">{{reflist|group=image}}</div>
+            </div>
+            
+            </div>
+        </form>
+        
+        <a id="about" href="http://en.wikipedia.org/wiki/User_talk:Dominic/Image_citation">about this tool</a>
+        <a id="github" href="http://github.com/dominic-mp/wikidpla"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 3;" src="forkme.png" alt="Fork me on GitHub"></a>
+    </body>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+
+<html>
+    <head>
+        <title>Wikipedia Image Citation Generator</title>
+        <link rel="stylesheet" href="css/style.css" type='text/css'>
+        <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+        <script src="js/wikippoc.js"></script>
+        <script>
+            var args = function() {
+              var a = Array();
+              if (window.location.search && window.location.search.length > 1) {
+                var pairs = window.location.search.substring(1).split('&');
+               
+                while (pairs.length) {
+                  var pair = pairs.pop().split('=');
+                  a[pair[0]] = pair[1];
+                }
+              }
+              return a;
+            }();
+            
+            var fileNameEnabled = true;
+            $(document).ready(function() {
+              if ('url' in args)
+                $('#ppocUrl').attr('value', args['url']);
+              
+              if ('file' in args) {
+                $('#ppocFile').attr('value', args['file']);
+                fileNameEnabled = true;
+              } else if ($('#ppocFile').attr('value') === "" ||
+                         $('#ppocFile').attr('value') === "(optional)") {
+                $('#ppocFile').focus(function () {
+                  $('#ppocFile').css('color', "");
+                  $('#ppocFile').attr('value', "");
+                  fileNameEnabled = true;
+                });
+                $('#ppocFile').css('color', '#999');
+                $('#ppocFile').attr('value', "(optional)");
+                fileNameEnabled = false;
+              }
+            });
+
+            function lookup() {
+              var ppocUrl = $('#ppocUrl').attr('value');
+              var ppocFile = fileNameEnabled
+                           ? $('#ppocFile').attr('value')
+                           : undefined;
+              var ppocCiteChecked =  $('#ppocStyleCitation').is(':checked');
+              
+              wikippoc(ppocUrl, function(pic) {
+                var ppoc = $('<div id="ppoc">')
+                  .append('<a target="_new" href="' + pic.link + '"><img src="'+ pic.thumb_gallery + '"></a>')
+                  .append("<br><span class='title'>" + pic.title + "</span>");
+                $("#ppoc").replaceWith(ppoc);
+                $("#wikitext").text(pic.wikitext);
+                $('#reflist').css('display', ppocCiteChecked ? 'none' : 'inline');
+              }, ppocFile, ppocCiteChecked);
+            }
+
+            $(document).ready(lookup);
+        </script>
+    </head>
+
+    <body>
+        <header>Wikipedia Image Citation Generator</header>
+        <center>Works with LC Prints and Photographs</center>
+        <form action="javascript:lookup()">
+            <div id="ppoc"></div>
+            
+            <table>
+                <tr>
+                    <td class="label">URL or LC Digital ID:</td>
+                    <td><input id="ppocUrl" type="text" size="50" value="http://www.loc.gov/pictures/resource/cph.3c13276/"></td>
+                </tr>
+                <tr>
+                    <td class="label">Commons file name:</td>
+                    <td><input id="ppocFile" type="text" size="50" value=""></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input id="ppocStyleCitation" type="radio" value="citation" name="style" /> Citation&emsp;<input id="ppocStyleFootnote" type="radio" value="footnote" name="style" checked /> Footnote</td>
+                </tr>
+                <tr><td colspan="2"><input type="submit" value="generate"></td></tr>
+            </table>
+            
+            <div class="wikitext" id="wikitext"></div>
+            
+            <div id="reflist">
+                Wikitext for references list:
+                <div class="wikitext">{{reflist|group=image}}</div>
+            </div>
+            
+            </div>
+        </form>
+        
+        <a id="about" href="http://en.wikipedia.org/wiki/Wikipedia_talk:Image_citation">about this tool</a>
+        <a id="github" href="http://github.com/dominic-mp/wikippoc"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 3;" src="forkme.png" alt="Fork me on GitHub"></a>
+    </body>
+</html>
