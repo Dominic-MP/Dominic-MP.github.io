@@ -86,23 +86,25 @@
             
             <table>
                 <tr>
-                    <td class="label">URL or LC Digital ID:</td>
                     <td><input id="ppocUrl" type="text" size="50" value="http://www.loc.gov/pictures/resource/cph.3c13276/"></td>
+                    <td class="label">URL or LC Digital ID</td>
                 </tr>
                 <tr>
-                    <td class="label">Commons file name:</td>
                     <td><input id="ppocFile" type="text" size="50" value=""></td>
+                    <td class="label">Commons file name</td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input id="ppocStyleCitation" type="radio" value="citation" name="style" /> Citation&emsp;<input id="ppocStyleFootnote" type="radio" value="footnote" name="style" checked /> Footnote</td>
-                </tr>
-                <tr><td colspan="2"><input type="submit" value="generate"></td></tr>
+                    <td colspan="2"><input id="ppocStyleCitation" type="radio" value="citation" name="style" /> Citation&emsp;<input id="ppocStyleFootnote" type="radio" value="footnote" name="style" checked /> Footnote
+               		<input type="submit" style="float:right" value="generate"></td>
+               </tr>
             </table>
+            
+                <strong>Code for citation/footnote:</strong>
             
             <div class="wikitext" id="wikitext"></div>
             
             <div id="reflist">
-                <strong>Wikitext for references list:</strong>
+                <strong>Code for references list:</strong>
                 <div class="wikitext" id="wikitext">{{reflist|group=image}}</div>
             </div>     
             </div>
