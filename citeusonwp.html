@@ -2,10 +2,12 @@
 
 <html>
     <head>
-        <title>Wikipedia Image Citation Generator</title>
-        <link rel="stylesheet" href="Citation/css/style.css" type='text/css'>
+    	<meta charset='utf-8' />
+    	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+        <title>Wikipedia Citation Generator</title>
+        <link rel="stylesheet" href="stylesheet.css" type='text/css'>
         <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
-        <script src="Citation/js/wikippoc.js"></script>
+        <script src="citeusonwp/wikippoc.js"></script>
         <script>
             var args = function() {
               var a = Array();
@@ -63,8 +65,22 @@
     </head>
 
     <body>
-        <header>Wikipedia Image Citation Generator</header>
-        <center>Works with LC Prints and Photographs</center>
+    
+    <div id="header_wrap" class="outer">
+      <header class="inner2">
+      
+        <a id="home_banner" href="http://dominic-mp.github.io">Dominic's tools</a>
+        <a id="citizenarchivist_banner" href="http://archives.gov/citizen-archivist">Citizen Archivists</a>
+      
+        <h1 id="project_title">Wikipedia Citation Generator</h1>
+        <h2 id="project_tagline">Works with Library of Congress Prints and Photographs Online Catalog (<a href="http://www.loc.gov/pictures/">PPOC</a>)<br/><span style="font-size:.8em">Version 0.1 (<a href="http://en.wikipedia.org/wiki/Wikipedia_talk:Image_citation">about this tool</a>)</span></h2>
+        
+      </header>
+    </div>
+                
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner2">
+      
         <form action="javascript:lookup()">
             <div id="ppoc"></div>
             
@@ -86,14 +102,27 @@
             <div class="wikitext" id="wikitext"></div>
             
             <div id="reflist">
-                Wikitext for references list:
-                <div class="wikitext">{{reflist|group=image}}</div>
+                <strong>Wikitext for references list:</strong>
+                <div class="wikitext" id="wikitext">{{reflist|group=image}}</div>
+            </div>     
             </div>
             
-            </div>
         </form>
+        </section>
+        </div>
         
-        <a id="about" href="http://en.wikipedia.org/wiki/Wikipedia_talk:Image_citation">about this tool</a>
-        <a id="github" href="http://github.com/dominic-mp/wikippoc"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 3;" src="Citation/forkme.png" alt="Fork me on GitHub"></a>
+       <div id="footer_wrap" class="outer">
+       
+        <a id="github" href="http://github.com/dominic-mp/wikippoc"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 0;" src="forkme.png" alt="Fork me on GitHub"></a>
+        
+      <footer class="inner">
+                
+        <p class="copyright" xmlns:dct="http://purl.org/dc/terms/"><span style="font-size:.8em"><em>This site is part of the <a
+          href="http://archives.gov/citizen-archivist">Citizen Archivist initiative</a>, a project of the <a href="http://archives.gov/" rel="dct:publisher">National Archives and Records Administration</a>. As a work of the United States Government, this web page is is <a rel="license" href="http://creativecommons.org/publicdomain/mark/1.0/" alt="Public Domain Mark">free of copyright restrictions</a>.</em></span></p>
+        <p><span style="font-size:.7em">Published with <a href="http://pages.github.com">GitHub Pages</a>
+          using the <a href="https://github.com/jsncostello/slate">Slate Theme</a>.</span></p>
+      </footer>
+    </div> 
+    
     </body>
 </html>
