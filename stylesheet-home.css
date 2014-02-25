@@ -1,0 +1,10 @@
+/* Because the home page doesn't have enough content, apparently */
+html, body, #main_content_wrap {
+    height: 100%;
+    overflow: hidden;
+}
+
+#footer_wrap {
+    position: absolute;
+    bottom: 0;
+}
