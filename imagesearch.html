@@ -24,7 +24,7 @@
             
             var e = $("input:text").val();
                $.getJSON('https://catalog.archives.gov/api/v1/?type=description&objects.object.file.@mime=image&description.item.generalRecordsTypeArray.generalRecordsType=10035674&rows=20&q=' + e + '&offset=' + o, function(t) {
-               		o = o + 10;
+               		o = o + 20;
 					var i = 0;
 					var images = "<small>(See in catalog: <a href='https://catalog.archives.gov/search?tabType=image&q=" + e + "'>https://catalog.archives.gov/search?tabType=image&q=" + e + "</a>)</small><br/><br/><p align='right'><button type='button' id='input'>Next 20 images</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>";
 					for (i = 0; i < 20; i++) { 
@@ -47,7 +47,7 @@
                   	$('#images').html(images);
 
                });
-$('#loading').html('<br/><p><b><font face="verdana">Searching for images...</font></b></p><a href="https://catalog.archives.gov/id/3493244"><img src="64-NA-320_a.jpg" height="500"/></a><p>(This may take up to 30 seconds.)<p>');
+$('#loading').html('<br/><p><b><font face="verdana">Our archivists are searching for your images...</font></b></p><a href="https://catalog.archives.gov/id/3493244"><img src="64-NA-320_a.jpg" height="500"/></a><p>(This may take up to 30 seconds.)<p>');
             });
          });
       </script>
