@@ -1,0 +1,69 @@
+<!-- Based on https://midtownindy.org/wp-content/uploads/2017/07/indygo-red-line.jpg -->
+
+<html>
+<head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" language="javascript">
+$(document).ready(function() {
+	stops = {'66th': ['Indianapolis Arts Center', 'Opti-Park', 'Fire by the Monon'], 'BRip': ['HopCat', 'The Vogue', 'Fresh Thyme', 'HotBox', 'Central Canal Towpath']};
+
+	function stop(stop) {
+		return stops[stop][Math.floor(Math.random() * stops[stop].length)];
+	}
+
+	$('#66th').html(stop('66th'));
+	$('#BRip').html(stop('BRip'))
+})
+</script>
+</head>
+<body>
+<center><svg height="2500" width="1000">
+  <line x1="543" y1="20" x2="543" y2="1000" style="stroke:rgb(255,0,0);stroke-width:40" />
+  <line x1="243" y1="980" x2="243" y2="1600" style="stroke:rgb(255,0,0);stroke-width:40" />
+<circle cx="543" cy="43" r="30" stroke="black" stroke-width="3" fill="white" />
+<circle cx="543" cy="163" r="30" stroke="black" stroke-width="3" fill="white" />
+<circle cx="543" cy="283" r="30" stroke="black" stroke-width="3" fill="white" />
+<circle cx="543" cy="403" r="30" stroke="black" stroke-width="3" fill="white" />
+<circle cx="543" cy="523" r="30" stroke="black" stroke-width="3" fill="white" />
+<circle cx="543" cy="643" r="30" stroke="black" stroke-width="3" fill="white" />
+<circle cx="543" cy="763" r="30" stroke="black" stroke-width="3" fill="white" />
+  <line x1="223" y1="980" x2="523" y2="980" style="stroke:rgb(255,0,0);stroke-width:40" />
+  <line x1="123" y1="1600" x2="223" y2="1600" style="stroke:rgb(255,0,0);stroke-width:40" />
+  <line x1="123" y1="2086" x2="373" y2="2086" style="stroke:rgb(255,0,0);stroke-width:40" />
+  <line x1="123" y1="1600" x2="123" y2="2086" style="stroke:rgb(255,0,0);stroke-width:40" />
+<circle cx="450" cy="980" r="30" stroke="black" stroke-width="3" fill="white" />
+<circle cx="243" cy="980.3" r="30" stroke="black" stroke-width="3" fill="white" />
+<circle cx="243" cy="1105.6" r="30" stroke="black" stroke-width="3" fill="white" />
+<circle cx="243" cy="1228.9" r="30" stroke="black" stroke-width="3" fill="white" />
+<circle cx="243" cy="1351.3" r="30" stroke="black" stroke-width="3" fill="white" />
+<circle cx="243" cy="1474.6" r="30" stroke="black" stroke-width="3" fill="white" />
+<circle cx="243" cy="1597.9" r="30" stroke="black" stroke-width="3" fill="white" />
+<circle cx="123" cy="1720.3" r="30" stroke="black" stroke-width="3" fill="white" />
+<circle cx="123" cy="1842.6" r="30" stroke="black" stroke-width="3" fill="white" />
+<circle cx="123" cy="1964.9" r="30" stroke="black" stroke-width="3" fill="white" />
+<circle cx="123" cy="1597.9" r="30" stroke="black" stroke-width="3" fill="white" />
+<circle cx="123" cy="2086.3" r="30" stroke="black" stroke-width="3" fill="white" />
+<circle cx="373" cy="2086.3" r="30" stroke="black" stroke-width="3" fill="white" />
+<text id="66th" x="585" y="49" font-size="30">66th St.</text>
+<text id="BRip" x="585" y="169" font-size="30">Broad Ripple Ave.</span></text>
+<text id="Kessler" x="585" y="289" font-size="30">Kessler Ave.</span></text>
+<text id="54th" x="585" y="409" font-size="30">54th St.</span></text>
+<text id="52nd" x="585" y="529" font-size="30">52nd St.</span></text>
+<text id="46th" x="585" y="649" font-size="30">46th St.</span></text>
+<text id="42nd" x="585" y="769" font-size="30">42nd St.</span></text>
+<text id="Park" x="456" y="941" font-size="30" transform="rotate(-90 456,935)">Park Ave.</span></text>
+<text id="38th/M" x="249" y="941" font-size="30" transform="rotate(-90 249,935)">38th St. & Meridian St.</span></text>
+<text id="18th/C" x="129" y="1563" font-size="30" transform="rotate(-90 129,1557)">18th St. & Capitol Ave.</span></text>
+<text id="34th" x="285" y="1111.6" font-size="30">34th St.</span></text>
+<text id="30th" x="285" y="1234.9" font-size="30">30th St.</span></text>
+<text id="FCreek" x="285" y="1357.3" font-size="30">Fall Creek Pkwy.</span></text>
+<text id="22nd" x="285" y="1480.6" font-size="30">22nd St.</span></text>
+<text id="18th/M" x="285" y="1603.9" font-size="30">18th St. & Meridian St.</span></text>
+<text id="14th" x="165" y="1848.6" font-size="30">14th St.</span></text>
+<text id="9th" x="165" y="1970.9" font-size="30">9th St.</span></text>
+<text id="Vermont" x="165" y="1726.3" font-size="30">Vermont St.</span></text>
+<text id="Statehouse" x="129" y="2137" font-size="30" transform="rotate(-270 129,2125)">Washington St.</span></text>
+<text id="DTC" x="379" y="2137" font-size="30" transform="rotate(-270 379,2125)">Downtown Transit Center</span></text>
+</svg></center>
+</body>
+</html>
