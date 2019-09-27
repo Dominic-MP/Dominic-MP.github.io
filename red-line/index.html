@@ -1,22 +1,136 @@
 <!-- Based on https://midtownindy.org/wp-content/uploads/2017/07/indygo-red-line.jpg -->
 
 <html>
+<title>Red Line spots</title>
 <head>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script type="text/javascript" language="javascript">
-$(document).ready(function() {
-	stops = {'66th': ['Indianapolis Arts Center', 'Opti-Park', 'Fire by the Monon'], 'BRip': ['HopCat', 'The Vogue', 'Fresh Thyme', 'HotBox', 'Central Canal Towpath']};
-
-	function stop(stop) {
-		return stops[stop][Math.floor(Math.random() * stops[stop].length)];
-	}
-
-	$('#66th').html(stop('66th'));
-	$('#BRip').html(stop('BRip'))
-})
-</script>
+<link rel='icon' href='http://www.clker.com/cliparts/e/O/X/L/f/J/red-line-th.png' type='image/x-icon'/ >
 </head>
 <body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" language="javascript">
+
+	stops = {
+	"66th": {
+		"name": "66th St.",
+		"food": ["Fire by the Monon"],
+		"fun": ["Indianapolis Arts Center", "Opti-Park"]
+	},
+	"BRip": {
+		"name": "Broad Ripple Ave.",
+		"food": ["HopCat", "HotBox"],
+		"fun": ["The Vogue", "Fresh Thyme", "Central Canal Towpath"]
+	},
+	"54th": {
+		"name": "Broad Ripple Ave.",
+		"food": ["HopCat", "HotBox"],
+		"fun": ["The Vogue", "Fresh Thyme", "Central Canal Towpath"]
+	},
+	"52nd": {
+		"name": "Broad Ripple Ave.",
+		"food": ["HopCat", "HotBox"],
+		"fun": ["The Vogue", "Fresh Thyme", "Central Canal Towpath"]
+	},
+	"46th": {
+		"name": "Broad Ripple Ave.",
+		"food": ["HopCat", "HotBox"],
+		"fun": ["The Vogue", "Fresh Thyme", "Central Canal Towpath"]
+	},
+	"42nd": {
+		"name": "Broad Ripple Ave.",
+		"food": ["HopCat", "HotBox"],
+		"fun": ["The Vogue", "Fresh Thyme", "Central Canal Towpath"]
+	},
+	"Park": {
+		"name": "Broad Ripple Ave.",
+		"food": ["HopCat", "HotBox"],
+		"fun": ["The Vogue", "Fresh Thyme", "Central Canal Towpath"]
+	},
+	"38th/M": {
+		"name": "Broad Ripple Ave.",
+		"food": ["HopCat", "HotBox"],
+		"fun": ["The Vogue", "Fresh Thyme", "Central Canal Towpath"]
+	},
+	"34th": {
+		"name": "Broad Ripple Ave.",
+		"food": ["HopCat", "HotBox"],
+		"fun": ["The Vogue", "Fresh Thyme", "Central Canal Towpath"]
+	},
+	"30th": {
+		"name": "Broad Ripple Ave.",
+		"food": ["HopCat", "HotBox"],
+		"fun": ["The Vogue", "Fresh Thyme", "Central Canal Towpath"]
+	},
+	"FCreek": {
+		"name": "Broad Ripple Ave.",
+		"food": ["HopCat", "HotBox"],
+		"fun": ["The Vogue", "Fresh Thyme", "Central Canal Towpath"]
+	},
+	"22nd": {
+		"name": "Broad Ripple Ave.",
+		"food": ["HopCat", "HotBox"],
+		"fun": ["The Vogue", "Fresh Thyme", "Central Canal Towpath"]
+	},
+	"18th/M": {
+		"name": "Broad Ripple Ave.",
+		"food": ["HopCat", "HotBox"],
+		"fun": ["The Vogue", "Fresh Thyme", "Central Canal Towpath"]
+	},
+	"18th/C": {
+		"name": "Broad Ripple Ave.",
+		"food": ["HopCat", "HotBox"],
+		"fun": ["The Vogue", "Fresh Thyme", "Central Canal Towpath"]
+	},
+	"14th": {
+		"name": "Broad Ripple Ave.",
+		"food": ["HopCat", "HotBox"],
+		"fun": ["The Vogue", "Fresh Thyme", "Central Canal Towpath"]
+	},
+	"9th": {
+		"name": "Broad Ripple Ave.",
+		"food": ["HopCat", "HotBox"],
+		"fun": ["The Vogue", "Fresh Thyme", "Central Canal Towpath"]
+	},
+	"Vermont": {
+		"name": "Broad Ripple Ave.",
+		"food": ["HopCat", "HotBox"],
+		"fun": ["The Vogue", "Fresh Thyme", "Central Canal Towpath"]
+	},
+	"Statehouse": {
+		"name": "Broad Ripple Ave.",
+		"food": ["HopCat", "HotBox"],
+		"fun": ["The Vogue", "Fresh Thyme", "Central Canal Towpath"]
+	},
+	"DTC": {
+		"name": "Broad Ripple Ave.",
+		"food": ["HopCat", "HotBox"],
+		"fun": ["The Vogue", "Fresh Thyme", "Central Canal Towpath"]
+	}
+}
+
+	function stop(stop, type) {
+		if (type == 'name') {
+			return stops[stop]['name']
+			}
+		else {
+			return stops[stop][type][Math.floor(Math.random() * stops[stop][type].length)];
+		}
+	}
+	
+	function button() {
+	  const type = $('input[name=type]:checked').val();
+		$('#66th').html(stop('66th', type));
+		$('#BRip').html(stop('BRip', type))
+	}
+
+</script>
+<table>
+  <tr>
+    <td><strong>Show:</strong></td>
+    <td><input onclick="button()" type="radio" name="type" value="name">Station names</td>
+    <td><input onclick="button()" type="radio" name="type" value="food">Food</td>
+    <td><input onclick="button()" type="radio" name="type" value="fun">Fun</td>
+  </tr>
+</table>
 <center><svg height="2500" width="1000">
   <line x1="543" y1="20" x2="543" y2="1000" style="stroke:rgb(255,0,0);stroke-width:40" />
   <line x1="243" y1="980" x2="243" y2="1600" style="stroke:rgb(255,0,0);stroke-width:40" />
