@@ -126,20 +126,27 @@
 		Object.keys(stops).forEach(station => {
 			$('#' + station).html(stop(station, type));
 		})
-		$('#regen').show()
+		
+		if ($('input[name=type]:checked').val() != 'name') {
+			$('#regen').show()
+			}
+		if ($('input[name=type]:checked').val() == 'name') {
+			$('#regen').hide()
+			}
+		$('#foodcolor').css('background', 'white');
+		$('#namecolor').css('background', 'white');
+		$('#funcolor').css('background', 'white');
+		$('#' + $('input[name=type]:checked').val() + 'color').css('background', 'red');
 	}
 
 </script>
-<br><table style="margin-left: 80px; margin-top: 200px;">
+<br><table style="margin-left: 80px;">
   <tr>
-    <td colspan="2"><strong><big>Show:</big></strong></td></tr><tr>
-    <td style="font-size:30px" colspan="2"><input onclick="button()" type="radio" name="type" value="name" id="station"><big><label for="station"> Station names</label></big></input></td></tr>
-    <tr><td style="font-size:30px" colspan="2"><input width: 20em; height: 20em;" onclick="button()" type="radio" name="type" value="food" id="food"><big><label for="food"> Food</label></big></input></td></tr>
-    <tr><td style="font-size:30px" colspan="2"><input onclick="button()" type="radio" name="type" value="fun" id="fun"><big><label for="fun"> Fun</label></big></input></td></tr>
-    <tr id="regen" style="display:none"><td><input border="1" onclick="button()" type="image" name="type" height="40" src="https://cdn2.iconfinder.com/data/icons/dark-action-bar-2/96/refresh-512.png" id="regenerate"></input></td><td style="font-size:30px" align="left"><big><strong><label for="regenerate"> Regenerate</label></strong></big></td>
+    <td colspan="2"><strong><big>Show:</big></strong></td></tr><tr bgcolor="white">
+    <td style="border: 1px solid black" colspan="2"><input style="display:none" onclick="button()" type="radio" name="type" value="name" id="station"><big><label id="namecolor" style="font-size:60px" for="station"> Names</label></big></input></td><td style="border: 1px solid black" colspan="2"><input style="display:none" onclick="button()" type="radio" name="type" value="food" id="food"><big><label id="foodcolor" style="font-size:60px" for="food"> Food</label></big></input></td><td style="border: 1px solid black" colspan="2"><input style="display:none" onclick="button()" type="radio" name="type" value="fun" id="fun"><big><label id="funcolor" style="font-size:60px" for="fun"> Fun</label></big></input></td><td bgcolor="white" id="regen" style="display:none"><input border="1" onclick="button()" type="image" name="type" height="60" src="https://cdn2.iconfinder.com/data/icons/dark-action-bar-2/96/refresh-512.png" id="regenerate"></input></td>
   </tr>
 </table>
-<center><svg style="margin-top: -200px; margin-left: 100px" height="2600" width="1000">
+<center><svg style="margin-left: 100px" height="2600" width="1000">
   <line x1="543" y1="20" x2="543" y2="1000" style="stroke:rgb(255,0,0);stroke-width:40" />
   <line x1="243" y1="980" x2="243" y2="1600" style="stroke:rgb(255,0,0);stroke-width:40" />
 <circle cx="543" cy="43" r="30" stroke="black" stroke-width="3" fill="white" />
