@@ -4,6 +4,11 @@
 <title>Red Line Roulette</title>
 <head>
 <link rel='icon' href='http://www.clker.com/cliparts/e/O/X/L/f/J/red-line-th.png' type='image/x-icon'/ >
+
+<meta property="og:title" content="Red Line Roulette" />
+<meta property="og:image" content="rlr.jpg" />
+<meta name="og:description" content="IndyGo Red Line visualization tool &mdash; View your route map with randomly generated attractions!" />
+
 </head>
 <body>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -13,7 +18,7 @@
 	"66th": {
 		"name": "66th St.",
 		"food": ["Fire by the Monon", "La Piedad", "The Northside Social", "Ezra's Enlightened Cafe", "Cake Bake Shop"],
-		"fun": ["Indianapolis Arts Center", "Opti-Park"]
+		"fun": ["Indianapolis Art Center", "Opti-Park"]
 	},
 	"BRip": {
 		"name": "Broad Ripple Ave.",
@@ -143,7 +148,7 @@
 <br><table cellspacing="10" style="margin-left: 80px;">
   <tr>
     <td colspan="2"><strong><big>Show:</big></strong></td></tr><tr bgcolor="white">
-    <td style="border: 1px solid black" colspan="2"><input style="display:none" onclick="button()" type="radio" name="type" value="name" id="station"><big><label id="namecolor" style="font-size:60px; background: red" for="station"> Names</label></big></input></td><td style="border: 1px solid black" colspan="2"><input style="display:none" onclick="button()" type="radio" name="type" value="food" id="food"><big><label id="foodcolor" style="font-size:60px" for="food"> Food</label></big></input></td><td style="border: 1px solid black" colspan="2"><input style="display:none" onclick="button()" type="radio" name="type" value="fun" id="fun"><big><label id="funcolor" style="font-size:60px" for="fun"> Fun</label></big></input></td><td bgcolor="white" id="regen" style="display:none"><input border="1" onclick="button()" type="image" name="type" height="60" src="https://cdn2.iconfinder.com/data/icons/dark-action-bar-2/96/refresh-512.png" id="regenerate"></input></td>
+    <td style="border: 5px solid black; border-radius: 8px" colspan="2"><input style="display:none" onclick="button()" type="radio" name="type" value="name" id="station"><big><label id="namecolor" style="font-size:60px; background: red" for="station"> Names</label></big></input></td><td style="border: 5px solid black; border-radius: 8px" colspan="2"><input style="display:none" onclick="button()" type="radio" name="type" value="food" id="food"><big><label id="foodcolor" style="font-size:60px" for="food"> Food</label></big></input></td><td style="border: 5px solid black; border-radius: 8px" colspan="2"><input style="display:none" onclick="button()" type="radio" name="type" value="fun" id="fun"><big><label id="funcolor" style="font-size:60px" for="fun"> Fun</label></big></input></td><td bgcolor="white" id="regen" style="display:none"><input border="1" onclick="button()" type="image" name="type" height="60" src="https://cdn2.iconfinder.com/data/icons/dark-action-bar-2/96/refresh-512.png" id="regenerate"></input></td>
   </tr>
 </table>
 <center><svg style="margin-left: 100px" height="2600" width="1000">
